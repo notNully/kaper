@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\helpermethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\helpermethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,43 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "HelperMethods.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\HelperMethods.cs",
               "RelativeDocumentMoniker": "kap\\HelperMethods.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\HelperMethods.cs",
               "RelativeToolTip": "kap\\HelperMethods.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-05T10:08:27.009Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Commands.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Commands.cs",
               "RelativeDocumentMoniker": "kap\\Commands.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Commands.cs",
               "RelativeToolTip": "kap\\Commands.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAowJcAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-05T10:01:50.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Program.cs",
               "RelativeDocumentMoniker": "kap\\Program.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Program.cs",
               "RelativeToolTip": "kap\\Program.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAAAAJ0AAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-03T09:52:52.099Z",
               "EditorCaption": ""

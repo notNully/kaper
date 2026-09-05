@@ -15,7 +15,7 @@ namespace kap
         static public void Goto()
         {
             
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             int targetLine = int.Parse(Parameters[0]);
             MainClass.LineIndex = targetLine - 1;
         }
@@ -27,7 +27,7 @@ namespace kap
         static public void Print()
         {
             string text = MainClass.line.Substring(8);
-            text = MainClass.CheckIfVariable(text);
+            text = HelperMethods.CheckIfVariable(text);
             if (MainClass.line.Substring(6, 1) == "F")
             {
                 Console.Write(text);
@@ -45,10 +45,10 @@ namespace kap
         /// </summary>
         static public void Var()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string Name = Parameters[0];
             string value = Parameters[1];
-            if (MainClass.IsVariable(Name))
+            if (HelperMethods.IsVariable(Name))
             {
                 MainClass.Variables.Remove(Name);
                 MainClass.Variables.Add(Name, value.Replace("-", " "));
@@ -65,11 +65,11 @@ namespace kap
         /// </summary>
         static public void Set()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string Name = Parameters[0];
             string value = Parameters[1];
-            value = MainClass.CheckIfVariable(value);
-            if (MainClass.IsVariable(Name))
+            value = HelperMethods.CheckIfVariable(value);
+            if (HelperMethods.IsVariable(Name))
             {
                 MainClass.Variables[Name] = value;
             }
@@ -91,11 +91,11 @@ namespace kap
         /// </summary>
         public static void Random()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string min = Parameters[0];
             string max = Parameters[1];
             string variable = Parameters[2];
-            if (MainClass.IsVariable(variable))
+            if (HelperMethods.IsVariable(variable))
             {
                 Random random = new Random();
                 MainClass.Variables[variable] = random.Next(int.Parse(min), int.Parse(max)).ToString();
@@ -108,14 +108,14 @@ namespace kap
         /// </summary>
         public static void Add()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
-            number1 = MainClass.CheckIfVariable(number1);
-            number2 = MainClass.CheckIfVariable(number2);
+            number1 = HelperMethods.CheckIfVariable(number1);
+            number2 = HelperMethods.CheckIfVariable(number2);
             int result = int.Parse(number1) + int.Parse(number2);
-            if (MainClass.IsVariable(variable))
+            if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = result.ToString();
             }
@@ -127,13 +127,13 @@ namespace kap
         /// </summary>
         public static void Sub()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
-            number1 = MainClass.CheckIfVariable(number1);
-            number2 = MainClass.CheckIfVariable(number2);
-            if (MainClass.IsVariable(variable))
+            number1 = HelperMethods.CheckIfVariable(number1);
+            number2 = HelperMethods.CheckIfVariable(number2);
+            if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = (int.Parse(number1) - int.Parse(number2)).ToString();
             }
@@ -145,13 +145,13 @@ namespace kap
         /// </summary>
         public static void Multi()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
-            number1 = MainClass.CheckIfVariable(number1);
-            number2 = MainClass.CheckIfVariable(number2);
-            if (MainClass.IsVariable(variable))
+            number1 = HelperMethods.CheckIfVariable(number1);
+            number2 = HelperMethods.CheckIfVariable(number2);
+            if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = (int.Parse(number1) * int.Parse(number2)).ToString();
             }
@@ -163,14 +163,14 @@ namespace kap
         /// </summary>
         public static void Div()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
-            number1 = MainClass.CheckIfVariable(number1);
-            number2 = MainClass.CheckIfVariable(number2);
+            number1 = HelperMethods.CheckIfVariable(number1);
+            number2 = HelperMethods.CheckIfVariable(number2);
             float result = float.Parse(number1) / float.Parse(number2);
-            if (MainClass.IsVariable(variable))
+            if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = result.ToString();
                 Console.WriteLine(result);
@@ -187,10 +187,10 @@ namespace kap
         /// </summary>
         public static void Input()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string variable = Parameters[0];
             string input = Console.ReadLine();
-            if (MainClass.IsVariable(variable))
+            if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = input;
             }
@@ -201,7 +201,7 @@ namespace kap
         /// </summary>
         public static void Title()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             Console.Title = Parameters[0].Replace('-', ' ');
         }
 
@@ -211,14 +211,14 @@ namespace kap
         /// </summary>
         public static void Concat()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string word1 = Parameters[0];
             string word2 = Parameters[0];
             string variable = Parameters[0];
-            word1 = MainClass.CheckIfVariable(word1);
-            word2 = MainClass.CheckIfVariable(word2);
+            word1 = HelperMethods.CheckIfVariable(word1);
+            word2 = HelperMethods.CheckIfVariable(word2);
             string result = word1 + word2;
-            if (MainClass.IsVariable(variable))
+            if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = result.ToString();
             }
@@ -230,7 +230,7 @@ namespace kap
         /// </summary>
         public static void Beep()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             Console.Beep(int.Parse(Parameters[0]), int.Parse(Parameters[1]));
         }
 
@@ -241,7 +241,7 @@ namespace kap
         /// </summary>
         public static void Color()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             switch (Parameters[0])
             {
                 case "green":
@@ -313,7 +313,7 @@ namespace kap
         /// </summary>
         public static void If()
         {
-            string[] Parameters = MainClass.GetParamters(MainClass.line);
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string variable1 = Parameters[0];
             string operation = Parameters[1];
             string variable2 = Parameters[2];
@@ -321,32 +321,32 @@ namespace kap
             switch (operation)
             {
                 case "=":
-                    variable1 = MainClass.CheckIfVariable(variable1);
-                    variable2 = MainClass.CheckIfVariable(variable2);
+                    variable1 = HelperMethods.CheckIfVariable(variable1);
+                    variable2 = HelperMethods.CheckIfVariable(variable2);
                     if (variable1 == variable2)
                     {
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
                 case "!":
-                    variable1 = MainClass.CheckIfVariable(variable1);
-                    variable2 = MainClass.CheckIfVariable(variable2);
+                    variable1 = HelperMethods.CheckIfVariable(variable1);
+                    variable2 = HelperMethods.CheckIfVariable(variable2);
                     if (variable1 != variable2)
                     {
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
                 case "<":
-                    variable1 = MainClass.CheckIfVariable(variable1);
-                    variable2 = MainClass.CheckIfVariable(variable2);
+                    variable1 = HelperMethods.CheckIfVariable(variable1);
+                    variable2 = HelperMethods.CheckIfVariable(variable2);
                     if (int.Parse(variable1) < int.Parse(variable2))
                     {
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
                 case ">":
-                    variable1 = MainClass.CheckIfVariable(variable1);
-                    variable2 = MainClass.CheckIfVariable(variable2);
+                    variable1 = HelperMethods.CheckIfVariable(variable1);
+                    variable2 = HelperMethods.CheckIfVariable(variable2);
                     if (int.Parse(variable1) > int.Parse(variable2))
                     {
                         MainClass.LineIndex = gotoline - 1;
