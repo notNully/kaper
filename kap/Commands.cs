@@ -354,5 +354,17 @@ namespace kap
                     break;
             }
         }
+
+        public static void Length()
+        {
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            string word = Parameters[0];
+            string variable = Parameters[1];
+            word = HelperMethods.CheckIfVariable(word);
+            if (HelperMethods.IsVariable(variable))
+            {
+                MainClass.Variables[variable] = word.Length.ToString();
+            }
+        }
     }
 }

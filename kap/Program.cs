@@ -83,19 +83,10 @@ namespace kap
                         Commands.If();
                         break;
                     //TODO: finish these commands
-                    case "loop":
-
-                        break;
                     case "length":
 
                         break;
                     case "substring":
-
-                        break;
-                    case "date":
-
-                        break;
-                    case "time":
 
                         break;
                     case "run":
