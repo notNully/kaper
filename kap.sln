@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37012.4 d17.14
+VisualStudioVersion = 17.14.37012.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kap", "kap\kap.csproj", "{632B4C24-522A-4E06-B483-D647A2759831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KapBuilder", "KapBuilder\KapBuilder.csproj", "{1B552A49-4128-48E3-9AD2-475010BBD9DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{632B4C24-522A-4E06-B483-D647A2759831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632B4C24-522A-4E06-B483-D647A2759831}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632B4C24-522A-4E06-B483-D647A2759831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B552A49-4128-48E3-9AD2-475010BBD9DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B552A49-4128-48E3-9AD2-475010BBD9DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B552A49-4128-48E3-9AD2-475010BBD9DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B552A49-4128-48E3-9AD2-475010BBD9DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

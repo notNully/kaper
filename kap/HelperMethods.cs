@@ -26,6 +26,15 @@ namespace kap
                     if (Path.GetExtension(filePath) == ".kap")
                     {
                         MainClass.lines = File.ReadAllLines(filePath);
+                        foreach (var line in MainClass.lines)
+                        {
+                            if (line != null)
+                            {
+                                int index = Array.IndexOf(MainClass.lines, line);
+                                string decrypted = Base64Decode(line);
+                                MainClass.lines[index] = decrypted;
+                            }
+                        }
                     }
                     else
                     {
@@ -46,6 +55,17 @@ namespace kap
                 Environment.Exit(0);
             }
             Console.Clear();
+        }
+
+        /// <summary>
+        /// decodes the encyption on kap files
+        /// </summary>
+        /// <param name="base64EncodedData">add the encypted text</param>
+        /// <returns>the decoded string</returns>
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
         /// <summary>
