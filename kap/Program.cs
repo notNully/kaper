@@ -5,9 +5,9 @@ using System.IO;
 using System.Reflection.Metadata;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace Kap
+namespace kap
 {
-    class Program
+    class MainClass
     {
         public static string[] lines;
         public static int LineIndex = 0;
@@ -49,70 +49,71 @@ namespace Kap
             Console.Clear();
 
 
-            // a loop to go every line and run teh commands
+            // a loop to go every line and run the commands
             while (LineIndex < lines.Length)
             {
                 // get the current line
                 line = lines[LineIndex];
 
+                //gets the first word which is the caommnd for that line and runs a method for that command
                 switch (GetLineFirstWord(line))
                 {
                     case "goto":
-                        Goto();
+                        Commands.Goto();
                         break;
                     case "print":
-                        Print();
+                        Commands.Print();
                         break;
                     case "var":
-                        Var();
+                        Commands.Var();
                         break;
                     case "set":
-                        Set();
+                        Commands.Set();
                         break;
                     case "delay":
-                        Delay();
+                        Commands.Delay();
                         break;
                     case "random":
-                        Random();
+                        Commands.Random();
                         break;
                     case "add":
-                        Add();
+                        Commands.Add();
                         break;
                     case "sub":
-                        Sub();
+                        Commands.Sub();
                         break;
                     case "multi":
-                        Multi();
+                        Commands.Multi();
                         break;
                     case "div":
-                        Div();
+                        Commands.Div();
                         break;
                     case "input":
-                        Input();
+                        Commands.Input();
                         break;
                     case "title":
-                        Title();
+                        Commands.Title();
                         break;
                     case "concat":
-                        Concat();
+                        Commands.Concat();
                         break;
                     case "beep":
-                        Beep();
+                        Commands.Beep();
                         break;
                     case "color":
-                        Color();
+                        Commands.Color();
                         break;
                     case "clear":
-                        Clear();
+                        Commands.Clear();
                         break;
                     case "close":
-                        Close();
+                        Commands.Close();
                         break;
                     case "pause":
-                        Pause();
+                        Commands.Pause();
                         break;
                     case "if":
-                        If();
+                        Commands.If();
                         break;
                     case "run":
 
@@ -124,6 +125,8 @@ namespace Kap
 
                         break;
                 }
+
+                //goes to the next line
                 LineIndex++;
             }
         }
