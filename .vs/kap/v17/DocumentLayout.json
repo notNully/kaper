@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\log.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|solutionrelative:kap\\commands.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{632B4C24-522A-4E06-B483-D647A2759831}|kap\\kap.csproj|c:\\users\\admin\\desktop\\projects\\coding\\c#\\kaper\\kap\\helpermethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,29 +26,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Log.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Log.cs",
+              "RelativeDocumentMoniker": "kap\\Log.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Log.cs",
+              "RelativeToolTip": "kap\\Log.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAcwB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-05T13:42:35.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "HelperMethods.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\HelperMethods.cs",
               "RelativeDocumentMoniker": "kap\\HelperMethods.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\HelperMethods.cs",
               "RelativeToolTip": "kap\\HelperMethods.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACwAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-05T10:08:27.009Z"
+              "WhenOpened": "2026-09-05T10:08:27.009Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Commands.cs",
               "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Commands.cs",
               "RelativeDocumentMoniker": "kap\\Commands.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Commands.cs",
               "RelativeToolTip": "kap\\Commands.cs",
-              "ViewState": "AgIAAFkBAAAAAAAAAAAcwH4BAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAcwPMBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-05T10:01:50.626Z",
               "EditorCaption": ""
@@ -57,7 +75,7 @@
               "RelativeDocumentMoniker": "kap\\Program.cs",
               "ToolTip": "C:\\Users\\Admin\\Desktop\\projects\\coding\\C#\\kaper\\kap\\Program.cs",
               "RelativeToolTip": "kap\\Program.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAcwE8AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-03T09:52:52.099Z",
               "EditorCaption": ""

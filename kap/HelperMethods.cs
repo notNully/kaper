@@ -8,6 +8,8 @@ namespace kap
 {
     class HelperMethods
     {
+        public static string filePath = string.Empty;
+
         /// <summary>
         /// to get the file lines 
         /// </summary>
@@ -17,7 +19,7 @@ namespace kap
             //go to the folder that has the kap file and open cmd by right clicking and seclect 'open in terminal' then type 'kap file.kap'
             if (args.Length > 0)
             {
-                string filePath = args[0];
+                filePath = args[0];
 
                 if (File.Exists(filePath))
                 {

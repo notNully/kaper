@@ -14,9 +14,10 @@ namespace kap
         /// </summary>
         static public void Goto()
         {
-            
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "goto");
             int targetLine = int.Parse(Parameters[0]);
+            Log.logMsg("target line: " + targetLine);
             MainClass.LineIndex = targetLine - 1;
         }
 
@@ -28,12 +29,15 @@ namespace kap
         {
             string text = MainClass.line.Substring(8);
             text = HelperMethods.CheckIfVariable(text);
+            Log.logMsg("text: " + text);
             if (MainClass.line.Substring(6, 1) == "F")
             {
+                Log.logMsg("no new line");
                 Console.Write(text);
             }
             else if (MainClass.line.Substring(6, 1) == "T")
             {
+                Log.logMsg("new line");
                 Console.WriteLine(text);
             }
         }
@@ -46,15 +50,18 @@ namespace kap
         static public void Var()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "var");
             string Name = Parameters[0];
             string value = Parameters[1];
             if (HelperMethods.IsVariable(Name))
             {
+                Log.logMsg(Name + " already exists, overwriting it");
                 MainClass.Variables.Remove(Name);
                 MainClass.Variables.Add(Name, value.Replace("-", " "));
             }
             else
             {
+                Log.logMsg("creating new variable " + Name);
                 MainClass.Variables.Add(Name, value.Replace("-", " "));
             }
         }
@@ -66,11 +73,14 @@ namespace kap
         static public void Set()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "set");
             string Name = Parameters[0];
             string value = Parameters[1];
             value = HelperMethods.CheckIfVariable(value);
+            Log.logMsg("value: " + value);
             if (HelperMethods.IsVariable(Name))
             {
+                Log.logMsg(Name + " is a variable");
                 MainClass.Variables[Name] = value;
             }
         }
@@ -82,6 +92,7 @@ namespace kap
         static public void Delay()
         {
             string Paramter = MainClass.line.Substring(6);
+            Log.logMsg("delay: " + Paramter);
             System.Threading.Thread.Sleep(int.Parse(Paramter));
         }
 
@@ -92,13 +103,16 @@ namespace kap
         public static void Random()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "random");
             string min = Parameters[0];
             string max = Parameters[1];
             string variable = Parameters[2];
             if (HelperMethods.IsVariable(variable))
             {
                 Random random = new Random();
-                MainClass.Variables[variable] = random.Next(int.Parse(min), int.Parse(max)).ToString();
+                int result = random.Next(int.Parse(min), int.Parse(max));
+                Log.logMsg("result: " + result);
+                MainClass.Variables[variable] = result.ToString();
             }
         }
 
@@ -109,14 +123,32 @@ namespace kap
         public static void Add()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "add");
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
+            int result = 0;
             number1 = HelperMethods.CheckIfVariable(number1);
             number2 = HelperMethods.CheckIfVariable(number2);
-            int result = int.Parse(number1) + int.Parse(number2);
+            Log.logMsg("number 1: " + number1);
+            Log.logMsg("number 2: " + number2);
+
+            try
+            {
+                result = int.Parse(number1) + int.Parse(number2);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Log.logError("Error: cant divied by zero", ex);
+            }
+            catch (FormatException ex)
+            {
+                Log.logError("Error: cant math with letters ", ex);
+            }
+            Log.logMsg("result: " + result);
             if (HelperMethods.IsVariable(variable))
             {
+                Log.logMsg(variable + " is a variable");
                 MainClass.Variables[variable] = result.ToString();
             }
         }
@@ -128,14 +160,29 @@ namespace kap
         public static void Sub()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "sub");
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
             number1 = HelperMethods.CheckIfVariable(number1);
             number2 = HelperMethods.CheckIfVariable(number2);
+            Log.logMsg("number 1: " + number1);
+            Log.logMsg("number 2: " + number2);
+
+            int result = 0;
+            try
+            {
+                result = int.Parse(number1) - int.Parse(number2);
+            }
+            catch (FormatException ex)
+            {
+                Log.logError("Error: cant math with letters ", ex);
+            }
+            Log.logMsg("result: " + result);
             if (HelperMethods.IsVariable(variable))
             {
-                MainClass.Variables[variable] = (int.Parse(number1) - int.Parse(number2)).ToString();
+                Log.logMsg(variable + " is a variable");
+                MainClass.Variables[variable] = result.ToString();
             }
         }
 
@@ -146,14 +193,29 @@ namespace kap
         public static void Multi()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "multi");
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
             number1 = HelperMethods.CheckIfVariable(number1);
             number2 = HelperMethods.CheckIfVariable(number2);
+            Log.logMsg("number 1: " + number1);
+            Log.logMsg("number 2: " + number2);
+
+            int result = 0;
+            try
+            {
+                result = int.Parse(number1) * int.Parse(number2);
+            }
+            catch (FormatException ex)
+            {
+                Log.logError("Error: cant math with letters ", ex);
+            }
+            Log.logMsg("result: " + result);
             if (HelperMethods.IsVariable(variable))
             {
-                MainClass.Variables[variable] = (int.Parse(number1) * int.Parse(number2)).ToString();
+                Log.logMsg(variable + " is a variable");
+                MainClass.Variables[variable] = result.ToString();
             }
         }
 
@@ -164,20 +226,29 @@ namespace kap
         public static void Div()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "div");
             string number1 = Parameters[0];
             string number2 = Parameters[1];
             string variable = Parameters[2];
             number1 = HelperMethods.CheckIfVariable(number1);
             number2 = HelperMethods.CheckIfVariable(number2);
-            float result = float.Parse(number1) / float.Parse(number2);
+            Log.logMsg("number 1: " + number1);
+            Log.logMsg("number 2: " + number2);
+
+            float result = 0;
+            try
+            {
+                result = float.Parse(number1) / float.Parse(number2);
+            }
+            catch (FormatException ex)
+            {
+                Log.logError("Error: cant math with letters ", ex);
+            }
+            Log.logMsg("result: " + result);
             if (HelperMethods.IsVariable(variable))
             {
+                Log.logMsg(variable + " is a variable");
                 MainClass.Variables[variable] = result.ToString();
-                Console.WriteLine(result);
-                Console.WriteLine(MainClass.Variables[variable]);
-                Console.WriteLine(number1);
-                Console.WriteLine(number2);
-                Console.WriteLine(variable);
             }
         }
 
@@ -188,8 +259,10 @@ namespace kap
         public static void Input()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "input");
             string variable = Parameters[0];
             string input = Console.ReadLine();
+            Log.logMsg("input received: " + input);
             if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = input;
@@ -202,7 +275,9 @@ namespace kap
         public static void Title()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "title");
             Console.Title = Parameters[0].Replace('-', ' ');
+            Log.logMsg("title set to: " + Console.Title);
         }
 
         /// <summary>
@@ -212,14 +287,19 @@ namespace kap
         public static void Concat()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "concat");
             string word1 = Parameters[0];
             string word2 = Parameters[1];
             string variable = Parameters[2];
             word1 = HelperMethods.CheckIfVariable(word1);
             word2 = HelperMethods.CheckIfVariable(word2);
+            Log.logMsg("word 1: " + word1);
+            Log.logMsg("word 2: " + word2);
             string result = word1 + word2;
+            Log.logMsg("result: " + result);
             if (HelperMethods.IsVariable(variable))
             {
+                Log.logMsg(variable + " is a variable");
                 MainClass.Variables[variable] = result.ToString();
             }
         }
@@ -231,6 +311,7 @@ namespace kap
         public static void Beep()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "beep");
             Console.Beep(int.Parse(Parameters[0]), int.Parse(Parameters[1]));
         }
 
@@ -242,6 +323,7 @@ namespace kap
         public static void Color()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "color");
             switch (Parameters[0])
             {
                 case "green":
@@ -277,6 +359,9 @@ namespace kap
                 case "gray":
                     Console.ForegroundColor = ConsoleColor.Gray;
                     break;
+                default:
+                    Log.logMsg("unknown color: " + Parameters[0]);
+                    break;
             }
         }
 
@@ -286,6 +371,7 @@ namespace kap
         /// </summary>
         public static void Clear()
         {
+            Log.logMsg("clearing console");
             Console.Clear();
         }
 
@@ -295,6 +381,7 @@ namespace kap
         /// </summary>
         public static void Close()
         {
+            Log.logMsg("closing program");
             MainClass.LineIndex = MainClass.lines.Length;
         }
 
@@ -304,6 +391,7 @@ namespace kap
         /// </summary>
         public static void Pause()
         {
+            Log.logMsg("pausing, waiting for key press");
             Console.ReadKey();
         }
 
@@ -314,6 +402,7 @@ namespace kap
         public static void If()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "if");
             string variable1 = Parameters[0];
             string operation = Parameters[1];
             string variable2 = Parameters[2];
@@ -323,32 +412,40 @@ namespace kap
                 case "=":
                     variable1 = HelperMethods.CheckIfVariable(variable1);
                     variable2 = HelperMethods.CheckIfVariable(variable2);
+                    Log.logMsg(variable1 + " = " + variable2 + " ?");
                     if (variable1 == variable2)
                     {
+                        Log.logMsg("true, jumping to line " + gotoline);
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
                 case "!":
                     variable1 = HelperMethods.CheckIfVariable(variable1);
                     variable2 = HelperMethods.CheckIfVariable(variable2);
+                    Log.logMsg(variable1 + " != " + variable2 + " ?");
                     if (variable1 != variable2)
                     {
+                        Log.logMsg("true, jumping to line " + gotoline);
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
                 case "<":
                     variable1 = HelperMethods.CheckIfVariable(variable1);
                     variable2 = HelperMethods.CheckIfVariable(variable2);
+                    Log.logMsg(variable1 + " < " + variable2 + " ?");
                     if (int.Parse(variable1) < int.Parse(variable2))
                     {
+                        Log.logMsg("true, jumping to line " + gotoline);
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
                 case ">":
                     variable1 = HelperMethods.CheckIfVariable(variable1);
                     variable2 = HelperMethods.CheckIfVariable(variable2);
+                    Log.logMsg(variable1 + " > " + variable2 + " ?");
                     if (int.Parse(variable1) > int.Parse(variable2))
                     {
+                        Log.logMsg("true, jumping to line " + gotoline);
                         MainClass.LineIndex = gotoline - 1;
                     }
                     break;
@@ -362,11 +459,14 @@ namespace kap
         public static void Length()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "length");
             string word = Parameters[0];
             string variable = Parameters[1];
             word = HelperMethods.CheckIfVariable(word);
+            Log.logMsg("word: " + word);
             if (HelperMethods.IsVariable(variable))
             {
+                Log.logMsg("length: " + word.Length);
                 MainClass.Variables[variable] = word.Length.ToString();
             }
         }
@@ -377,8 +477,8 @@ namespace kap
         /// </summary>
         public static void Substring()
         {
-            
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            Log.logParameters(Parameters, "substring");
             string word = Parameters[0];
             string startIndex = Parameters[1];
             string Length = Parameters[2];
@@ -386,9 +486,14 @@ namespace kap
             word = HelperMethods.CheckIfVariable(word);
             startIndex = HelperMethods.CheckIfVariable(startIndex);
             Length = HelperMethods.CheckIfVariable(Length);
+            Log.logMsg("word: " + word);
+            Log.logMsg("start index: " + startIndex);
+            Log.logMsg("length: " + Length);
             if (HelperMethods.IsVariable(variable))
             {
-                MainClass.Variables[variable] = word.Substring(int.Parse(startIndex), int.Parse(Length));
+                string result = word.Substring(int.Parse(startIndex), int.Parse(Length));
+                Log.logMsg("result: " + result);
+                MainClass.Variables[variable] = result;
             }
         }
     }

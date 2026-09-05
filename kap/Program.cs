@@ -15,13 +15,12 @@ namespace kap
         static public void Main(string[] args)
         {
             HelperMethods.GetfileLines(args);
-
+            Log.AppendLog();
             // a loop to go every line and run the commands
             while (HelperMethods.IsOnEnd())
             {
                 // get the current line
                 line = lines[LineIndex];
-
                 //gets the first word which is the caommnd for that line and runs a method for that command
                 switch (HelperMethods.GetLineFirstWord(line))
                 {
@@ -88,6 +87,9 @@ namespace kap
                         break;
                     case "substring":
                         Commands.Substring();
+                        break;
+                    case "log":
+                        Log.PrintLog();
                         break;
                     case "run":
 
