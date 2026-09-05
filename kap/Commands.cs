@@ -213,8 +213,8 @@ namespace kap
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
             string word1 = Parameters[0];
-            string word2 = Parameters[0];
-            string variable = Parameters[0];
+            string word2 = Parameters[1];
+            string variable = Parameters[2];
             word1 = HelperMethods.CheckIfVariable(word1);
             word2 = HelperMethods.CheckIfVariable(word2);
             string result = word1 + word2;
@@ -355,6 +355,10 @@ namespace kap
             }
         }
 
+        /// <summary>
+        /// a command to get a length of a word
+        /// command: length [word] [variable]
+        /// </summary>
         public static void Length()
         {
             string[] Parameters = HelperMethods.GetParamters(MainClass.line);
@@ -364,6 +368,27 @@ namespace kap
             if (HelperMethods.IsVariable(variable))
             {
                 MainClass.Variables[variable] = word.Length.ToString();
+            }
+        }
+
+        /// <summary>
+        /// a command to substring a word
+        /// command: substring [word] [startindex] [length] [variable]
+        /// </summary>
+        public static void Substring()
+        {
+            
+            string[] Parameters = HelperMethods.GetParamters(MainClass.line);
+            string word = Parameters[0];
+            string startIndex = Parameters[1];
+            string Length = Parameters[2];
+            string variable = Parameters[3];
+            word = HelperMethods.CheckIfVariable(word);
+            startIndex = HelperMethods.CheckIfVariable(startIndex);
+            Length = HelperMethods.CheckIfVariable(Length);
+            if (HelperMethods.IsVariable(variable))
+            {
+                MainClass.Variables[variable] = word.Substring(int.Parse(startIndex), int.Parse(Length));
             }
         }
     }

@@ -84,10 +84,10 @@ namespace kap
                         break;
                     //TODO: finish these commands
                     case "length":
-
+                        Commands.Length();
                         break;
                     case "substring":
-
+                        Commands.Substring();
                         break;
                     case "run":
 
