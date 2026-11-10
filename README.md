@@ -4,8 +4,7 @@ A simple interpreted scripting language built with C#.
 
 Kaper uses its own `.kap` file format and provides a collection of basic instructions for writing and running simple scripts.
 
-The project was built for no purpose and just a fun project i built
-
+The project was built as a personal project for fun.
 
 ## Features
 
@@ -16,6 +15,7 @@ The project was built for no purpose and just a fun project i built
 - Conditional statements and jumps.
 - User input and console output.
 - Random number generation.
+- Save and load variables using JSON files.
 - Console customization (colors, title, etc.).
 - Built-in delays.
 
@@ -25,7 +25,7 @@ The project was built for no purpose and just a fun project i built
 
 1. Download the latest release of Kaper.
 2. Create a folder anywhere on your computer.
-3. Extract the contents of both the `kap` and `kapbuilder` folders into your new folder.
+3. Extract the contents of app folder and get the `kap` and `kapbuilder` exe into your new folder.
 4. Make sure the files are located like this:
 
 ```text
@@ -113,6 +113,8 @@ instruction parameter1 parameter2
 | `concat` | Word1, Word2, variable | Joins two values together. |
 | `length` | Word, variable | Gets the length of a string. |
 | `substring` | Word, start index, length, variable | Extracts part of a string. |
+| `save` | Filename, variable | Saves a variable to a JSON file. |
+| `load` | Filename, variable, destination | Loads a saved value into an existing variable. |
 | `title` | Text | Changes the console window title. |
 | `color` | Color | Changes the console text color. |
 | `clear` | None | Clears the console. |
@@ -174,6 +176,92 @@ If the age were `16`, the condition would be false, so Kaper would continue to l
 
 ---
 
+## Saving and Loading Variables
+
+Kaper allows you to save variables to JSON files and load their values later.
+
+### Save
+
+The `save` instruction saves a variable to a JSON file.
+
+**Syntax:**
+
+```text
+save [filename] [variable]
+```
+
+Example:
+
+```text
+var score 100
+save player score
+```
+
+This creates a file called `player.json` containing the variable `score` and its value.
+
+### Load
+
+The `load` instruction retrieves a variable from a JSON file and stores its value in another variable.
+
+**Syntax:**
+
+```text
+load [filename] [variable] [destination]
+```
+
+Example:
+
+```text
+var score 0
+load player score score
+
+print T Your-saved-score-is:
+print T score
+```
+
+This loads the saved value of `score` from `player.json` into the existing `score` variable.
+
+### Complete Example
+
+This example saves two variables, changes their values, and then loads the original values back.
+
+```text
+var username Player
+var score 100
+
+save player username
+save player score
+
+set username Guest
+set score 0
+
+load player username username
+load player score score
+
+print T Welcome-back!
+print T username
+print T Your-score:
+print T score
+pause
+```
+
+**How it works:**
+
+1. Creates two variables: `username` and `score`.
+2. Saves both variables to `player.json`.
+3. Changes their values.
+4. Loads their original values from the JSON file.
+5. Prints the restored values.
+
+**Important:**
+- You don't need to include `.json` in the filename.
+- Saving multiple variables using the same filename adds them to the same JSON file.
+- Saving an existing variable updates its saved value.
+- The destination variable must already exist before using `load`.
+- The JSON file is created in the program's working directory.
+
+---
+
 ## Other Supported Features
 
 ### Colors
@@ -224,15 +312,6 @@ input username
 
 print T Welcome!
 ```
-
----
-
-## About the Project
-
-Kaper is a personal programming project built using C#.
-
-The main goal is to experiment with the fundamentals of programming language development, including instruction parsing, variables, control flow, and interpretation.
-
-It is a simple project, but a fun way to explore how a programming language works behind the scenes.
+It's a simple project, but a fun way to explore how a programming language works behind the scenes.
 
 **Built with C#**
