@@ -4,17 +4,26 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 namespace kap
 {
     internal class Log
     {
+        public static bool isDebugEnabled = false;
         public static string Logtext = "";
         static string pendingText = "";
 
         public static void AppendLog()
         {
-            string filePath = Path.Combine(Path.GetDirectoryName(HelperMethods.filePath), "Log.txt");
-            File.AppendAllText(filePath, pendingText);
+            if (isDebugEnabled)
+            {
+                string filePath = Path.Combine(Path.GetDirectoryName(MainClass.filePath), "Log.txt");
+                File.AppendAllText(filePath, pendingText);
+            }
+            else
+            {
+                Logtext = "";
+            }
             pendingText = "";
         }
         public static void logMsg(string text)

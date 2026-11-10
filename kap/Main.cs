@@ -7,22 +7,22 @@ namespace kap
 {
     class MainClass
     {
+        public static string filePath = string.Empty;
         public static string[] lines;
         public static int LineIndex = 0;
         public static string line = string.Empty;
-        public static Dictionary<string, string> Variables = new Dictionary<string, string>();
 
         static public void Main(string[] args)
         {
-            HelperMethods.GetfileLines(args);
-            Log.AppendLog();
+            Initialization.Init(args);
+
             // a loop to go every line and run the commands
-            while (HelperMethods.IsOnEnd())
+            while (LineIndex < lines.Length)
             {
                 // get the current line
                 line = lines[LineIndex];
                 //gets the first word which is the caommnd for that line and runs a method for that command
-                switch (HelperMethods.GetLineFirstWord(line))
+                switch (StringMethods.GetLineFirstWord(line))
                 {
                     case "goto":
                         Commands.Goto();
@@ -81,7 +81,6 @@ namespace kap
                     case "if":
                         Commands.If();
                         break;
-                    //TODO: finish these commands
                     case "length":
                         Commands.Length();
                         break;
@@ -91,9 +90,7 @@ namespace kap
                     case "log":
                         Log.PrintLog();
                         break;
-                    case "run":
-
-                        break;
+                    //TODO: finish these commands
                     case "save":
 
                         break;
