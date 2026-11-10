@@ -215,7 +215,7 @@ Example:
 var score 0
 load player score score
 
-print T Your-saved-score-is:
+print T Your saved score is:
 print T score
 ```
 
@@ -284,9 +284,9 @@ print T This-text-is-green
 ### Hello World
 
 ```text
-title Hello-World
+title Hello World
 color green
-print T Welcome-to-Kaper!
+print T Welcome to Kaper!
 pause
 ```
 
@@ -299,7 +299,7 @@ var result 0
 
 add number1 number2 result
 
-print T Calculation-completed!
+print T Calculation completed!
 ```
 
 ### User Input
@@ -307,7 +307,7 @@ print T Calculation-completed!
 ```text
 var username Guest
 
-print F Enter-your-name:
+print F Enter your name:
 input username
 
 print T Welcome!
