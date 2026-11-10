@@ -1,0 +1,34 @@
+var gold 0
+var loaded_gold 0
+
+print T --- STEP 1: PLAY ---
+print F Enter starting gold:
+input gold
+
+print T --- STEP 2: SAVE ---
+print T Saving gold to GameSave...
+save GameSave gold
+
+pause
+clear
+
+
+print T --- STEP 3: RESET ---
+set gold 0
+
+print T Your gold has been reset to:
+print T gold
+print T (This proves the game forgot your gold)
+
+pause
+clear
+
+
+print T --- STEP 4: LOAD ---
+print T Loading gold from GameSave...
+load GameSave gold loaded_gold
+
+print T Success! Your loaded gold is:
+print T loaded_gold
+
+pause
