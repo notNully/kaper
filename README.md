@@ -156,9 +156,9 @@ if [value1] [operator] [value2] [line number]
 var age 18
 
 if age > 17 5
-print T You-are-under-18
+print T You are under 18
 goto 6
-print T You-are-18-or-older
+print T You are 18 or older
 ```
 
 **How it works:**
@@ -166,7 +166,7 @@ print T You-are-18-or-older
 1. Line 1 creates a variable called `age` with the value `18`.
 2. Line 3 checks whether `age` is greater than `17`.
 3. Since the condition is true, Kaper jumps to line 5.
-4. Line 5 prints `You-are-18-or-older`.
+4. Line 5 prints `You are 18 or older`.
 
 If the age were `16`, the condition would be false, so Kaper would continue to line 4 instead.
 
