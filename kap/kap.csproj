@@ -5,17 +5,15 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <ApplicationIcon>script.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+	<PublishSingleFile>true</PublishSingleFile>
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <DebugType>embedded</DebugType>
+	<PublishDir>..\build</PublishDir>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="script.ico" />
+    <Content Include="Icon.ico" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="main.kap">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>

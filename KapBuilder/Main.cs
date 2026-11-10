@@ -21,16 +21,25 @@ namespace KapBuilder
 
                 if (File.Exists(FilePath))
                 {
-                    lines = File.ReadAllLines(FilePath);
+                    if (Path.GetExtension(FilePath) == ".kap")
+                    {
+                        Console.WriteLine("Error: File is already a kap file.");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        lines = File.ReadAllLines(FilePath);
+                    }
                 }
                 else
                 {
                     Console.WriteLine("Error: File not found.");
+                    Environment.Exit(0);
                 }
             }
             else
             {
-                Console.WriteLine("No file provided");
+                Console.WriteLine("Error: No file provided");
                 Console.ReadKey();
                 Environment.Exit(0);
             }
