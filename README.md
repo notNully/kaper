@@ -1,8 +1,11 @@
 # Kaper
 
-**Kaper** is a simple, lightweight interpreted scripting language built with C#. It uses the `.kap` file format and allows you to write and execute simple programs using easy-to-understand instructions.
+A simple interpreted scripting language built with C#.
 
-Kaper was created as a project to explore how programming languages and interpreters work, while providing a simple environment for writing small scripts.
+Kaper uses its own `.kap` file format and provides a collection of basic instructions for writing and running simple scripts.
+
+The project was built for no purpose and just a fun project i built
+
 
 ## Features
 
@@ -14,7 +17,7 @@ Kaper was created as a project to explore how programming languages and interpre
 - User input and console output.
 - Random number generation.
 - Console customization (colors, title, etc.).
-- Built-in delays and sound effects.
+- Built-in delays.
 
 ---
 
@@ -23,7 +26,7 @@ Kaper was created as a project to explore how programming languages and interpre
 1. Download the latest release of Kaper.
 2. Create a folder anywhere on your computer.
 3. Extract the contents of both the `kap` and `kapbuilder` folders into your new folder.
-4. Make sure the folder structure looks like this:
+4. Make sure the files are located like this:
 
 ```text
 YourFolder/
@@ -100,7 +103,7 @@ instruction parameter1 parameter2
 | `set` | Variable, value | Changes an existing variable's value. |
 | `input` | Variable | Reads user input and stores it in a variable. |
 | `goto` | Line number | Jumps to a specific line in the script. |
-| `if` | Value1, operator, Value2, line | Checks a condition and jumps to a line if it is true. |
+| `if` | Value1, operator, Value2, line | Checks a condition and jumps to a specific line if it is true. |
 | `delay` | Milliseconds | Pauses execution for a specified amount of time. |
 | `random` | Min, max, variable | Generates a random number and stores it in a variable. |
 | `add` | Number1, Number2, variable | Adds two numbers. |
@@ -113,27 +116,78 @@ instruction parameter1 parameter2
 | `title` | Text | Changes the console window title. |
 | `color` | Color | Changes the console text color. |
 | `clear` | None | Clears the console. |
-| `beep` | Frequency, duration | Plays a console beep. |
 | `pause` | None | Waits for a key press. |
 | `close` | None | Stops program execution. |
 | `log` | None | Prints interpreter log information. |
 
-### Supported Colors
+---
+
+## Conditional Statements (`if`)
+
+The `if` instruction allows your program to make decisions.
+
+It compares two values using an operator. If the condition is true, Kaper jumps to the specified line number. If the condition is false, the program continues executing the next line normally.
+
+### Syntax
+
+```text
+if [value1] [operator] [value2] [line number]
+```
+
+| Parameter | Description |
+|---|---|
+| Value1 | The first value you want to compare. |
+| Operator | The comparison operator. |
+| Value2 | The second value you want to compare. |
+| Line number | The line Kaper should jump to if the condition is true. |
+
+### Supported Operators
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `=` | Equal to | `if 10 = 10 5` |
+| `!` | Not equal to | `if 10 ! 5 5` |
+| `<` | Less than | `if 5 < 10 5` |
+| `>` | Greater than | `if 10 > 5 5` |
+
+### Example
+
+```text
+var age 18
+
+if age > 17 5
+print T You-are-under-18
+goto 6
+print T You-are-18-or-older
+```
+
+**How it works:**
+
+1. Line 1 creates a variable called `age` with the value `18`.
+2. Line 3 checks whether `age` is greater than `17`.
+3. Since the condition is true, Kaper jumps to line 5.
+4. Line 5 prints `You-are-18-or-older`.
+
+If the age were `16`, the condition would be false, so Kaper would continue to line 4 instead.
+
+**Important:** Line numbers start at `1`, and the jump only happens when the condition is true.
+
+---
+
+## Other Supported Features
+
+### Colors
 
 The `color` instruction supports:
 
 `green`, `blue`, `red`, `white`, `yellow`, `cyan`, `magenta`, `darkgreen`, `darkblue`, `darkred`, `gray`.
 
-### Conditional Operators
+Example:
 
-The `if` instruction supports the following operators:
-
-| Operator | Description |
-|---|---|
-| `=` | Equal to |
-| `!` | Not equal to |
-| `<` | Less than |
-| `>` | Greater than |
+```text
+color green
+print T This-text-is-green
+```
 
 ---
 
@@ -170,24 +224,6 @@ input username
 
 print T Welcome!
 ```
-
----
-
-## Project Structure
-
-```text
-Kaper/
-├── kap/
-│   └── kap.exe
-│
-├── kapbuilder/
-│   └── kapbuilder.exe
-│
-└── README.md
-```
-
-- **kap.exe** – The interpreter responsible for executing `.kap` scripts.
-- **kapbuilder.exe** – The builder responsible for converting text scripts into `.kap` files.
 
 ---
 
