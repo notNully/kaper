@@ -1,0 +1,4 @@
+title Hello-World
+color green
+print T Welcome-to-Kaper!
+pause

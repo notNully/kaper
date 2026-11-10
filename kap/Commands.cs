@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace kap
+﻿namespace kap
 {
     class Commands
     {
@@ -495,6 +489,44 @@ namespace kap
                 Log.logMsg("result: " + result);
                 VariableManager.Variables[variable] = result;
             }
+        }
+
+        /// <summary>
+        /// command: save [Filename] [variable]
+        /// </summary>
+        public static void Save()
+        {
+            string[] Parameters = StringMethods.GetParamters(MainClass.line);
+
+            string SaveFileName = Parameters[0];
+            string Variable = Parameters[1];
+
+            Log.logMsg($"Save command: {SaveFileName}");
+
+            if (VariableManager.IsVariable(Variable))
+            {
+                SaveManager.SaveData(SaveFileName, Variable);
+            }
+            else
+            {
+                Log.logMsg($"Variable '{Variable}' does not exist");
+            }
+        }
+
+        /// <summary>
+        /// command: load [Filename] [variable] [Variable Destination]
+        /// </summary>
+        public static void Load()
+        {
+            string[] Parameters = StringMethods.GetParamters(MainClass.line);
+
+            string SaveFileName = Parameters[0];
+            string Variable = Parameters[1];
+            string VariableDestination = Parameters[2];
+
+            Log.logMsg($"Load command: {SaveFileName}");
+
+            SaveManager.LoadData(SaveFileName, Variable, VariableDestination);
         }
     }
 }

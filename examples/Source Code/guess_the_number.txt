@@ -1,0 +1,17 @@
+var number 0
+var userinput 0
+random 0 5 number
+
+print T Guess the number
+input userinput
+if userinput = number 12
+print T wrong
+pause
+clear
+goto 4
+
+print T Correct
+pause
+clear
+print T new number generated
+goto 3

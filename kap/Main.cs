@@ -1,9 +1,4 @@
-﻿using System.ComponentModel;
-using System.IO;
-using System.Reflection.Metadata;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace kap
+﻿namespace kap
 {
     class MainClass
     {
@@ -87,15 +82,11 @@ namespace kap
                     case "substring":
                         Commands.Substring();
                         break;
-                    case "log":
-                        Log.PrintLog();
-                        break;
-                    //TODO: finish these commands
                     case "save":
-
+                        Commands.Save();
                         break;
                     case "load":
-
+                        Commands.Load();
                         break;
                 }
 

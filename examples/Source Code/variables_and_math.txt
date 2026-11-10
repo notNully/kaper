@@ -1,0 +1,7 @@
+var number1 10
+var number2 5
+var result 0
+add number1 number2 result
+print T The-result-is:
+print T result
+pause

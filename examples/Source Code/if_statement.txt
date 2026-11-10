@@ -1,0 +1,6 @@
+var age 18
+if age > 17 5
+print T You-are-under-18
+goto 6
+print T You-are-18-or-older
+pause

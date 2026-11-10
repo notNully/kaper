@@ -1,0 +1,6 @@
+var username Guest
+print F What-is-your-name?
+input username
+print T Hello!
+print T username
+pause

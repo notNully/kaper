@@ -53,7 +53,11 @@ namespace KapBuilder
                     lines[index] = encypted;
                 }
             }
-
+            if (File.Exists(Path.Combine(Path.GetDirectoryName(FilePath), Path.GetFileName(FilePath) + ".kap").Replace(".txt", "")))
+            {
+                File.Delete(Path.Combine(Path.GetDirectoryName(FilePath), Path.GetFileName(FilePath) + ".kap").Replace(".txt", ""));
+            }
+            
             File.AppendAllLines(Path.Combine(Path.GetDirectoryName(FilePath), Path.GetFileName(FilePath) + ".kap").Replace(".txt", ""), lines);
         }
 

@@ -1,0 +1,7 @@
+var min 1
+var max 10
+var result 0
+random min max result
+print T Your-random-number-is:
+print T result
+pause

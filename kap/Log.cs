@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-namespace kap
+﻿namespace kap
 {
     internal class Log
     {
@@ -62,10 +55,6 @@ namespace kap
             Logtext += line;
             pendingText += line;
             AppendLog();
-        }
-        public static void PrintLog()
-        {
-            Console.Write(Logtext);
         }
     }
 }

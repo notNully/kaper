@@ -1,0 +1,63 @@
+var userinput 0
+var operation 0
+var number1 0
+var number2 0
+var result 0
+
+print F Selcet a operation:
+input userinput
+set operation userinput
+
+if userinput = + 22
+if userinput = - 22
+if userinput = * 22
+if userinput = / 22
+
+color red
+print T wrong operation
+pause
+color white
+clear
+goto 6
+pause
+
+print F enter number one:
+input number1
+
+print F enter number two:
+input number2
+
+if operation ! + 33
+
+add number1 number2 result
+goto 47
+
+if operation ! - 38
+
+sub number1 number2 result
+goto 47
+
+if operation ! * 43
+
+multi number1 number2 result
+goto 47
+
+if operation ! / 47
+div number1 number2 result
+goto 47
+
+delay 1000
+color green
+print F result is:
+print F result
+color white
+pause
+
+set userinput 0
+set operation 0
+set number1 0
+set number2 0
+set result 0
+
+clear
+goto 6

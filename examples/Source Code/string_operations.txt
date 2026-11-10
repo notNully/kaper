@@ -1,0 +1,9 @@
+var first Hello
+var second World
+var result empty
+concat first second result
+print T result
+length result result
+print T Character-count:
+print T result
+pause

@@ -1,0 +1,8 @@
+var counter 1
+var limit 5
+var one 1
+print T counter
+add counter one counter
+if counter < limit 2
+print T Finished!
+pause
